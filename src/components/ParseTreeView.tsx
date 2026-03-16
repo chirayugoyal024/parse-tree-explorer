@@ -75,7 +75,7 @@ export function ParseTreeView({ tree, nonTerminals }: ParseTreeViewProps) {
   const offsetX = -bounds.minX + NODE_W / 2 + 20;
   const offsetY = 20;
 
-  const renderEdges = useCallback((n: LayoutNode): JSX.Element[] => {
+  function renderEdges(n: LayoutNode): JSX.Element[] {
     const edges: JSX.Element[] = [];
     for (const child of n.children) {
       const x1 = n.x + offsetX;
@@ -83,7 +83,6 @@ export function ParseTreeView({ tree, nonTerminals }: ParseTreeViewProps) {
       const x2 = child.x + offsetX;
       const y2 = child.y + offsetY;
       const midY = (y1 + y2) / 2;
-      // Orthogonal step lines
       edges.push(
         <motion.path
           key={`${n.node.id}-${child.node.id}`}
@@ -99,9 +98,9 @@ export function ParseTreeView({ tree, nonTerminals }: ParseTreeViewProps) {
       edges.push(...renderEdges(child));
     }
     return edges;
-  }, [offsetX, offsetY]);
+  }
 
-  const renderNodes = useCallback((n: LayoutNode): JSX.Element[] => {
+  function renderNodes(n: LayoutNode): JSX.Element[] {
     const isNT = nonTerminals.includes(n.node.symbol);
     const isEpsilon = n.node.symbol === 'ε';
     const isMatched = n.node.matched;
@@ -142,7 +141,7 @@ export function ParseTreeView({ tree, nonTerminals }: ParseTreeViewProps) {
       nodes.push(...renderNodes(child));
     }
     return nodes;
-  }, [nonTerminals, offsetX, offsetY]);
+  }
 
   return (
     <div className="overflow-auto flex-1">
