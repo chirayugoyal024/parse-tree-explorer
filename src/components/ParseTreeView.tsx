@@ -1,6 +1,6 @@
 import { type TreeNode } from '@/lib/ll1-parser';
 import { motion } from 'framer-motion';
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 
 interface ParseTreeViewProps {
   tree: TreeNode | null;
