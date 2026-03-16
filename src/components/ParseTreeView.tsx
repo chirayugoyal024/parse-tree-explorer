@@ -58,16 +58,17 @@ function getTreeBounds(layout: LayoutNode): { minX: number; maxX: number; maxY: 
 }
 
 export function ParseTreeView({ tree, nonTerminals }: ParseTreeViewProps) {
-  if (!tree) {
+  const layoutResult = useMemo(() => tree ? layoutTree(tree, nonTerminals) : null, [tree, nonTerminals]);
+  const layout = layoutResult?.layout ?? null;
+  const bounds = useMemo(() => layout ? getTreeBounds(layout) : null, [layout]);
+
+  if (!tree || !layout || !bounds) {
     return (
       <div className="flex items-center justify-center h-full text-muted-foreground font-mono text-sm">
         Parse a string to see the tree
       </div>
     );
   }
-
-  const { layout } = useMemo(() => layoutTree(tree, nonTerminals), [tree, nonTerminals]);
-  const bounds = useMemo(() => getTreeBounds(layout), [layout]);
 
   const svgW = (bounds.maxX - bounds.minX) + NODE_W + 40;
   const svgH = bounds.maxY + NODE_H + 40;
