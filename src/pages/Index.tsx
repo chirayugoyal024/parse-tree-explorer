@@ -171,9 +171,29 @@ const Index = () => {
                       {currentParseStep.action}
                     </span>
                   )}
+
+                  {/* View Toggle */}
+                  <div className="ml-auto flex items-center gap-1 bg-muted rounded-md p-0.5">
+                    <button
+                      onClick={() => setMainView('tree')}
+                      className={`font-mono text-xs px-3 py-1 rounded-sm transition-colors ${
+                        mainView === 'tree' ? 'bg-card text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      Parse Tree
+                    </button>
+                    <button
+                      onClick={() => setMainView('tac')}
+                      className={`font-mono text-xs px-3 py-1 rounded-sm transition-colors ${
+                        mainView === 'tac' ? 'bg-card text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                      }`}
+                    >
+                      Three Address Code
+                    </button>
+                  </div>
                 </div>
 
-                {/* Stack + Input + Tree */}
+                {/* Stack + Input + Tree/TAC */}
                 <div className="flex gap-6 flex-1">
                   <div className="flex flex-col gap-4 w-48 flex-shrink-0">
                     {currentParseStep && (
@@ -184,10 +204,16 @@ const Index = () => {
                     )}
                   </div>
                   <div className="flex-1 border border-border rounded-md bg-card p-4 overflow-auto">
-                    <ParseTreeView
-                      tree={currentParseStep?.treeSnapshot || null}
-                      nonTerminals={grammar?.nonTerminals || []}
-                    />
+                    {mainView === 'tree' ? (
+                      <ParseTreeView
+                        tree={currentParseStep?.treeSnapshot || null}
+                        nonTerminals={grammar?.nonTerminals || []}
+                      />
+                    ) : (
+                      <ThreeAddressCode
+                        tree={currentParseStep?.treeSnapshot || null}
+                      />
+                    )}
                   </div>
                 </div>
               </>
