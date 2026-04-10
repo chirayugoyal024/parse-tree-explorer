@@ -5,7 +5,9 @@ import { LL1Table } from '@/components/LL1Table';
 import { ParsingStack } from '@/components/ParsingStack';
 import { InputTape } from '@/components/InputTape';
 import { ParseTreeView } from '@/components/ParseTreeView';
+import { ThreeAddressCode } from '@/components/ThreeAddressCode';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const Index = () => {
   const {
