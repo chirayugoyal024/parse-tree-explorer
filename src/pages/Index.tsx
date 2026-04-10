@@ -32,6 +32,7 @@ const Index = () => {
   } = useLL1Parser();
 
   const currentParseStep = parseSteps[currentStep] || null;
+  const [mainView, setMainView] = useState<'tree' | 'tac'>('tree');
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
