@@ -386,7 +386,8 @@ F -> ( E ) | id`,
   'Simple Assignment (LR/SLR)': `S -> id = E
 E -> E + T | T
 T -> id | ( E )`,
-  'If-Else': `S -> if E then S S'
-S' -> else S | ε
+  'If-Then-Else': `S -> if E then S else S
+S -> id
 E -> id`,
+  'Parentheses': `S -> ( S ) | ε`,
 };
