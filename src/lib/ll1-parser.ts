@@ -389,5 +389,6 @@ T -> id | ( E )`,
   'If-Then-Else': `S -> if E then S else S
 S -> id
 E -> id`,
-  'Parentheses': `S -> ( S ) | ε`,
+  'List (LR0 safe)': `L -> L , id
+L -> id`,
 };
