@@ -376,13 +376,16 @@ E' -> + T E' | ε
 T -> F T'
 T' -> * F T' | ε
 F -> ( E ) | id`,
-  'Simple Assignment': `S -> id = E
+  'Simple Assignment (LL1)': `S -> id = E
 E -> T E'
 E' -> + T E' | ε
 T -> id | ( E )`,
-  'Left Recursive (not LL1)': `E -> E + T | T
+  'Expression (LR/SLR)': `E -> E + T | T
 T -> T * F | F
 F -> ( E ) | id`,
+  'Simple Assignment (LR/SLR)': `S -> id = E
+E -> E + T | T
+T -> id | ( E )`,
   'If-Else': `S -> if E then S S'
 S' -> else S | ε
 E -> id`,
