@@ -4,7 +4,7 @@ Lexis is an interactive web application designed to visualize how expressions ar
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Generate parse trees from input expressions  
 - Visualize syntax structure in real time  
@@ -14,14 +14,14 @@ Lexis is an interactive web application designed to visualize how expressions ar
 
 ---
 
-## 🌐 Overview
+##  Overview
 
 Parsing is a fundamental concept in compiler design where an input string is analyzed according to grammatical rules.  
 This project visually represents that process by converting expressions into tree structures, making learning more intuitive and engaging.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - React  
 - TypeScript  
@@ -39,25 +39,25 @@ npm install
 npm run dev
 ```
 
-## 🎯 Use Cases
+##  Use Cases
 - Compiler Design students
 - Understanding parsing concepts
 - Visual learning of syntax trees
 - Academic demonstrations
 
-## 📊 Key Highlights
+##  Key Highlights
 - Converts expressions into structured parse trees
 - Improves conceptual clarity of parsing
 - Clean and minimal user interface
 - Real-time rendering and interaction
 
-## 🔮 Future Improvements
+##  Future Improvements
 - Support for LL(1), LR parsing
 - Grammar-based parsing input
 - Export parse tree as image
 - Step-by-step parsing animation
 
-## 👨‍💻 Team
+##  Team
 
 This project was built collaboratively by:
 
